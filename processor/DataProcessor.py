@@ -6,8 +6,8 @@ import os
 import numpy as np
 import pandas as pd
 from sklearn.datasets import load_svmlight_file
-import Constant
-from Utils import print_dataset_statistics
+from constant import Constant
+from util.Utils import print_dataset_statistics
 
 
 
