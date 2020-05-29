@@ -10,8 +10,6 @@ from constant import Constant
 from util.Utils import print_dataset_statistics
 
 
-
-
 # Load datasets in the svmlight / libsvm format into sparse CSR matrix
 # This format is a text-based format, with one sample per line.
 # It does not store zero valued features hence is suitable for sparse dataset.
