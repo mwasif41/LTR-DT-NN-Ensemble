@@ -67,7 +67,7 @@ def calculate_accuracy(pred, test):
 
 
 def calculate_ndcg(pred, test):
-    return accuracy_score(pred, test)
+    return ndcg_score(np.asarray([test]), np.asarray([pred]))
 
 
 def calculate_map(pred, test):

@@ -3,22 +3,20 @@ import numpy as np
 from constant.Constant import INPUT_DIMS_MQ2008
 
 
-class NnDtBagger:
+class NnStackedDt:
     nn_model = []
     dt_model = []
-    nn_weight = 0.5
 
-    def __init__(self, nn_weight):
-        self.nn_weight = nn_weight
+    def __init__(self):
         self.nn_model = DeepNeuralNetwork(INPUT_DIMS_MQ2008)
         # TODO change this to DT implementation
         self.dt_model = DeepNeuralNetwork(INPUT_DIMS_MQ2008)
 
     def fit(self, train_data):
-        # TODO:  do some data processing if needed (data division)
+        # TODO:  This will be done once got decision tree classifier
         self.nn_model.fit(train_data)
         self.dt_model.fit(train_data)
 
     def predict(self, test_data):
-        return self.nn_weight * np.asarray(self.nn_model.predict(test_data)) + (1 - self.nn_weight) * np.asarray(
-            self.dt_model.predict(test_data))
+        # TODO:  This will be done once got decision tree classifier
+        return  np.asarray(self.dt_model.predict(test_data))

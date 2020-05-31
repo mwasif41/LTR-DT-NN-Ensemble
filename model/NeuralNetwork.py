@@ -5,11 +5,12 @@ from util.Utils import get_data_params
 from util.Utils import encode_label
 from util.Utils import decode_label
 
+
 class DeepNeuralNetwork:
     model = Sequential()
 
-    def __init__(self):
-        self.model.add(Dense(40, input_dim=46, activation='relu'))
+    def __init__(self, input_dim):
+        self.model.add(Dense(40, input_dim=input_dim, activation='relu'))
         self.model.add(Dense(30, activation='relu'))
         self.model.add(Dense(3, activation='softmax'))
         self.model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
@@ -24,4 +25,5 @@ class DeepNeuralNetwork:
 
     def predict(self, test_data):
         test_x, test_y, test_q = get_data_params(test_data)
+        test_x = normalize_data(test_x)
         return decode_label(self.model.predict(test_x))
