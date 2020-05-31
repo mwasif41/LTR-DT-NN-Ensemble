@@ -25,6 +25,7 @@ test_x ,test_y , test_q = get_data_params(test)
 model = NnDtBagger(0.6)
 model.fit(train)
 pred = model.predict(test)
+print("predicted value :" , pred)
 ndcg = calculate_ndcg(pred, test_y)
 mAP = calculate_map(pred, test_y)
 
