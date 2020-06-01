@@ -1,4 +1,4 @@
-from catboost import CatBoostClassifier,CatBoost, Pool
+from catboost import CatBoostClassifier, Pool
 from util.Utils import get_data_params
 from util.Utils import normalize_data
 
@@ -19,6 +19,4 @@ class DecisionTree:
 
     def predict(self, test_data):
         test_x, test_y, test_q = get_data_params(test_data)
-        print(list(test_y.astype(int)))
-        # used .ravel() to unflatten the results from 2d array to 1d array
         return self.model.predict(Pool(data=normalize_data(test_x))).ravel()

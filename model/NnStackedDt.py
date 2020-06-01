@@ -15,11 +15,11 @@ class NnStackedDt:
         self.nn_model.fit(train_data)
         pred = self.nn_model.predict(train_data)
         stacked_data = train_data
-        stacked_data[len(stacked_data.columns)] = pred
+        stacked_data[0] = pred
         self.dt_model.fit(stacked_data)
 
     def predict(self, test_data):
         pred = self.nn_model.predict(test_data)
         stacked_data = test_data
-        stacked_data[len(stacked_data.columns)] = pred
+        stacked_data[0] = pred
         return self.dt_model.predict(stacked_data)

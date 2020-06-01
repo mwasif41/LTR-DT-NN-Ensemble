@@ -23,6 +23,13 @@ class DeepNeuralNetwork:
         self.history = self.model.fit(train_x, train_y, epochs=100, batch_size=64)
         return self.history
 
+    def fit_with_labels(self, train_data, labels):
+        train_x, train_y, train_q = get_data_params(train_data)
+        train_x = normalize_data(train_x)
+        train_y = encode_label(labels)
+        self.history = self.model.fit(train_x, train_y, epochs=100, batch_size=64)
+        return self.history
+
     def predict(self, test_data):
         test_x, test_y, test_q = get_data_params(test_data)
         test_x = normalize_data(test_x)
