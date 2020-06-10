@@ -22,7 +22,6 @@ class NnBoostedDt:
         self.dt_model.fit(boosted_data, np.subtract(pred, train_y))
 
     def predict(self, test_data):
-        # fix it
         pred_nn = self.nn_model.predict(test_data)
         pred_dt = self.dt_model.predict(test_data)
         return pred_nn + pred_dt

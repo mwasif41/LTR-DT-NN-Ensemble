@@ -36,7 +36,7 @@ def read_dataset(file_name):
 def get_data_params(df):
     y = df[0].values
     queries = df[1].values
-    X = df.iloc[:, 2:].values
+    X = df.iloc[:, 1:].values
     return X, y, queries
 
 
